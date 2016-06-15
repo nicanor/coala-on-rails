@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Iniciar Sesión | Coala</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+
+  <article class="page container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+      <main class="login-form">
+        <%= yield %>
+      </main>
+      </div>
+    </div>
+  </article>
+
+  </body>
+</html>

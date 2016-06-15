@@ -1,0 +1,60 @@
+<%= flash_messages if flash %>
+
+<article class="card">
+
+  <section class="card-block">
+    <h1 class="card-title">Iniciar Sesión</h1>
+
+    <% if logged_in? %>
+
+      <p class="card-text">
+        Usted ha iniciado sesión como
+        <strong><%= current_user.email %></strong>.
+      </p>
+      
+      <p class="card-text">
+        Haga click en administración para
+        continuar actualizando el sitio web.
+        O cierre sesión en caso contrario.
+      </p>
+
+      <%= link_to 'Administración', :users,
+          class: 'btn btn-primary btn-block' %>
+
+      <%= link_to 'Cerrar Sesión' , :logout,
+          class: 'btn btn-danger btn-block' %>
+  
+    <% else %>
+
+      <p class="card-text">
+        Debe iniciar sesión para acceder
+        al área de administración del sitio web.
+      </p>
+
+      <%= form_tag('/login') do %>
+      
+        <fieldset class="form-group">
+          <%= label_tag :email,
+            'Correo electrónico' %>
+          <%= text_field_tag :email, '',
+            class: 'form-control' %>
+        </fieldset>
+  
+        <fieldset class="form-group">
+          <%= label_tag :password,
+            'Contraseña' %>
+          <%= password_field_tag :password, '',
+            class: 'form-control' %>
+        </fieldset>
+  
+        <article>
+          <%= submit_tag 'Iniciar Sesión',
+              class: 'btn btn-primary' %>
+        </article>
+  
+      <% end %>
+    <% end %>
+
+  </section>
+
+</article>

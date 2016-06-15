@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CoalaWebsite</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+
+  <%= render 'navbar' %>
+
+  <article class="page container adjusted">
+    <div class="row">
+      <div class="col-md-8">
+        <%= yield %>
+      </div>
+      <div class="col-md-4 nav-articles ">
+        <h5>Últimos artículos</h5>
+        <ul class="nav nav-pills nav-stacked">
+          <% articles_info.each do |id, title| %>
+            <li class="nav-item">
+              <%= link_to title, article_path(id), class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    
+  </article>
+
+  <%= render 'footer' %>
+
+  </body>
+</html>

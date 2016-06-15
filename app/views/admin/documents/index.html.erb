@@ -1,0 +1,25 @@
+<%= render 'filter', filter: @filter %>
+
+<h1><%= t @filter.kind,
+        scope: :plural %></h1>
+
+<%= paginate @documents %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Publicación</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @documents %>  
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo documento',
+    new_document_path %>

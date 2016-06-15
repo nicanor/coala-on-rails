@@ -1,0 +1,5 @@
+<h1><%= @resource.title %></h1>
+
+<% if @resource.content %>
+  <%= compile_textile @resource.content %>
+<% end %>

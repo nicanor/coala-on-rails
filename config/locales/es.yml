@@ -1,0 +1,22 @@
+es:
+  page: 'Página'
+  article: 'Artículo'
+  recipe: 'Receta'
+  resource: 'Recurso'
+
+  plural:
+    page: 'Páginas'
+    article: 'Artículos'
+    recipe: 'Recetas'
+    resource: 'Recursos'
+    document: 'Documentos'
+
+  admin: 'Administrador'
+  editor: 'Editor'
+
+  views:
+    pagination:
+      first:    'Primera'
+      previous: 'Anterior'
+      next:     'Siguiente'
+      last:     'Última'

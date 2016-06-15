@@ -1,0 +1,78 @@
+<%= form_for(attachment) do |f| %>
+
+  <% if attachment.errors.any? %>
+    <article class="alert alert-danger">
+      <%= attachment.errors.count %>
+      error(es) no permiten guardar este archivo adjunto:
+      <ul>
+        <% attachment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </article>
+  <% end %>
+
+  <fieldset class="form-group">
+    <%= f.label :title, 'Título' %>
+    <%= f.text_field :title,
+        class: 'form-control' %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :slug, 'Permalink' %>
+    <%= f.text_field :slug,
+        class: 'form-control' %>
+    <small class="text-muted">
+      Debe ser url-friendly
+    </small>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :document_id, 'Sitio Web' %>
+    <%= f.select :document_id,
+      Document.pluck(:title, :id), {},
+      class: 'form-control' %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :description,
+        'Descripción' %>
+    <%= f.text_area :description,
+        class: 'form-control' %>
+    <small class="text-muted">
+      Breve descripción del archivo.
+      No más de 140 caracteres.
+    </small>
+  </fieldset>
+
+
+  <% if attachment.file %>
+    <%= image_tag(
+      @attachment.file.thumb('330x440').url,
+      class: 'img-fluid img-thumbnail') %>
+
+    <fieldset class="checkbox">
+      Tilde para borrar el archivo actual. <br />
+      <%= f.label :remove_file do %>
+        <%= f.check_box :remove_file %>
+        Borrar archivo
+      <% end %>
+    </fieldset>
+
+  <% else %>
+
+    <fieldset class="form-group">
+      Elegir archivo <br />
+      <%= f.label :file, class: :file do %>
+        <%= f.file_field :file %>
+        <span class="file-custom"></span>
+      <% end %>    
+    </fieldset>
+
+  <% end %>
+
+  <section class="actions">
+    <%= f.submit 'Guardar',
+    class: 'btn btn-primary' %>
+  </section>
+<% end %>

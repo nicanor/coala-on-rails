@@ -1,0 +1,49 @@
+/*
+ *= require bootstrap4
+ *= require prism2
+ *= require_self
+ */
+
+.navbar {
+  margin-bottom: 1rem;
+}
+
+/* 
+  Estilo de Textarea para escribir
+  código en markdown de forma cómoda
+*/
+.coding-textarea{
+  font-size: 0.6em;
+  font-family: monospace;
+  height: 20rem !important;
+  max-height: 20rem !important;
+  resize: none;
+}
+
+/* 
+  En Bootstrap 4 es "Browse".
+  Lo cambio por "Buscar".
+*/
+.file-custom::before {
+  content: "Buscar";
+}
+
+.form-row {
+  padding-bottom: 1rem;
+}
+
+h1 small.link {
+  font-size: 0.4em;
+}
+
+.show-document {
+  font-family: monospace;
+}
+
+.show-content code {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;    "
+}

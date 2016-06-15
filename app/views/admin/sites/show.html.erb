@@ -1,0 +1,17 @@
+<p>
+  <strong>Código:</strong>
+  <%= @site.code %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @site.name %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @site.description %>
+</p>
+
+<%= link_to 'Editar', edit_site_path(@site) %> |
+<%= link_to 'Volver', sites_path %>

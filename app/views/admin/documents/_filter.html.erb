@@ -1,0 +1,17 @@
+<%= form_for filter,
+    url: documents_path,
+    method: :get,
+    html: {class: 'form-inline'} do |f| %>
+  
+  <fieldset class="form-group">
+    <%= f.label :title, 'Título' %>
+    <%= f.text_field :title,
+        class: 'form-control' %>
+  </fieldset>
+
+  <%= f.submit 'Filtrar',
+    class: 'btn btn-sm btn-primary' %>
+  
+<% end %>
+
+<br />

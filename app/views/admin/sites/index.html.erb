@@ -1,0 +1,27 @@
+<h1>Sitios Web</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sites.each do |site| %>
+      <tr>
+        <td><%= site.code %></td>
+        <td><%= site.name %></td>
+        <td><%= link_to 'Ver', site %></td>
+        <td><%= link_to 'Editar', edit_site_path(site) %></td>
+        <td><%= link_to 'Eliminar', site, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo sitio web', new_site_path %>

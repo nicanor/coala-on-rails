@@ -1,0 +1,20 @@
+<article class="card resource">
+
+  <h2><%= link_to resource.title,
+    resource_path(resource) %></h2>
+
+  <% if resource.photo %>
+    <%= link_to resource_path(resource) do %>
+      <%= image_tag resource.photo.thumb('294x294#').url,
+          class: 'img-responsive' %>
+    <% end %>
+  <% end %>
+
+  <p><%= resource.description %></p>
+
+  <%= link_to 'Compartir por facebook',
+      resource.facebook_url,
+      class: 'btn btn-block btn-primary',
+      target: '_blank' %>
+
+</article>

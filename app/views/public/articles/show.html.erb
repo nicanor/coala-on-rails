@@ -1,0 +1,25 @@
+<h1><%= @article.title %></h1>
+
+<section class="card meta">
+  Nicanor Perera
+</section>
+
+<%= image_tag @article.photo.thumb('512x512#').url,
+    class: 'media-object' if @article.photo %>
+
+<% if @article.content %>
+  <%= compile_textile @article.content %>
+<% end %>
+
+<nav>
+  <ul class="pager">
+    <li>
+      <%= link_to @prev.title,
+          article_path(@prev) if @prev %>
+    </li>
+    <li>
+      <%= link_to @next.title,
+          article_path(@next) if @next %>
+    </li>
+  </ul>
+</nav>

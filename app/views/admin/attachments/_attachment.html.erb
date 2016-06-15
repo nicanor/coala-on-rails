@@ -1,0 +1,13 @@
+<tr>
+  <td><%= attachment.title %></td>
+  <td><%= attachment.slug %></td>
+
+  <td><%= link_to 'Ver', attachment %></td>
+
+  <td><%= link_to 'Editar',
+          [:edit, attachment] %></td>
+
+  <td><%= link_to 'Eliminar',
+          attachment, method: :delete,
+          data: { confirm: '¿Está seguro?' } %></td>
+</tr>

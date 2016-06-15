@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Administración | Coala</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'admin', media: 'all' %>
+    <%= javascript_include_tag 'admin' %>
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-full navbar-dark bg-primary" role="navigation">
+    <section class="container">
+      <a class="navbar-brand" href="/sites">
+        Administración | Coala
+      </a>
+      <ul class="nav navbar-nav pull-md-right">
+        <li class="nav-item active">
+          <a class="nav-link" href="/logout">
+            Cerrar Sesión
+          </a>
+        </li>
+      </ul>
+    </section>
+  </nav>
+
+  <article class="page container">
+    <div class="row">
+
+      <nav class="col-md-3">
+        <%= render 'side' %>
+      </nav>
+
+      <main class="col-md-9">
+        <%= flash_messages if flash %>
+        <%= yield %>
+      </main>
+    </div>
+  </article>
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<h1>Archivos</h1>
+
+<%# paginate @attachments %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Permalink</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @attachments %>  
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo archivo',
+    new_attachment_path %>

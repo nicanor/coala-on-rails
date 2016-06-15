@@ -1,0 +1,28 @@
+<ul class="nav nav-pills nav-stacked">
+
+  <% Document::KINDS.each do |kind| %>
+    <li class="nav-item">
+      <%= link_to t(kind, scope: :plural),
+          documents_path(
+            {'document_filter[kind]' => kind}
+          ), class: 'nav-link' %>
+    </li>
+  <% end %>
+
+
+  <li class="nav-item">
+    <%= link_to 'Archivos',
+        :attachments, class: 'nav-link' %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to 'Usuarios',
+        :users, class: 'nav-link' %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to 'Sitios Web',
+        :sites, class: 'nav-link' %>
+  </li>
+
+</ul>

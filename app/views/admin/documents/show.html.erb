@@ -1,0 +1,74 @@
+<h1>
+  <%= @document.title %>
+  <small class="link">
+    <%= link_to 'editar',
+      edit_document_path(@document) %>
+    <br />
+  </small>
+</h1>
+
+<section class="card show-document">
+<section class="card-block">
+
+<%= image_tag(
+    @document.photo.thumb('330x440').url,
+    class: 'img-fluid img-thumbnail'
+  ) if @document.photo %>
+
+<br /><br />
+
+<p>
+  <strong>Título:</strong>
+  <%= @document.title %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @document.slug %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= t @document.kind %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @document.description %>
+</p>
+
+<p>
+  <strong>¿Es público?</strong>
+  <%= @document.public ? '✓' : '×' %>
+</p>
+
+<p>
+  <strong>¿Está protegido?</strong>
+  <%= @document.protected ? '✓' : '×'  %>
+</p>
+
+<p>
+  <strong>Fecha de publicación:</strong>
+  <%= @document.publication_date %>
+</p>
+
+<p>
+  <strong>URL de facebook:</strong>
+  <%= link_to @document.facebook_url,
+              @document.facebook_url,
+              target: '_blank' %>
+</p>
+
+<p>
+  <strong>Sitio web:</strong>
+  <%= @document.site.code %>
+</p>
+</section>
+</section>
+<strong>Contenido:</strong>
+
+<pre class="show-content">
+<code class="language-markdown">
+<%= @document.content %>
+</code>
+</pre>

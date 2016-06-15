@@ -1,0 +1,40 @@
+<footer id="contacto" class="bg-inverse">
+  <article class="container adjusted">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <h2>Contacto</h2>
+        <p>Nuestra misión es concientizar a las personas sobre la grave problemática de la explotación animal, alentarlas a hacerse veganas, acompañarlas en su transición e inspirarlas a involucrarse a través de activismo vegano no violento y efectivo.</p>
+      </div>
+
+      <div class="col-md-4">
+
+        <dl>
+          <dt>Email</dt>
+          <dd><%= mail_to 'activismo.coala@gmail.com' %></dd>
+    
+          <dt>Facebook</dt>
+          <dd><%= link_to 'activismo.coala',
+              "http://facebook.com/activismo.coala",
+              target: '_blank' %></dd>
+          
+          <dt>Twitter</dt>
+          <dd><%= link_to '@CoalaArg',
+              "https://twitter.com/CoalaArg",
+              target: '_blank' %></dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="signature text-xs-center">
+      <%= Date.today %>
+      <span class="hidden-xs-down">
+        Colectivo Abolicionista por la Liberación Animal
+      </span>
+      <span class="hidden-sm-up">
+        Coala
+      </span>
+    </div>
+  </article>
+</footer>

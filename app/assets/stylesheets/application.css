@@ -1,0 +1,198 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap4
+ *= require_self
+ */
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 18px;
+}
+
+body {
+  /*height: 100%;*/
+  background-color: #fff;
+  margin-bottom: 16rem;
+  padding-bottom: 1rem;
+}
+
+/* Customize container */
+@media (min-width: 48em) {
+  .adjusted {
+    max-width: 46rem;
+  }
+}
+
+.login-form{
+  padding-top: 6rem;
+}
+
+.login-form h1 {
+  font-size: 1.2em;
+}
+
+.principal {
+  max-width: 720px;
+}
+
+.principal-image {
+  padding-bottom: 2rem;
+}
+
+.main-content {
+  margin: auto;
+  max-width: 25rem;
+}
+
+h3 {
+  padding-top: 1rem;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.page {
+  padding-top: 6em;
+  text-align: justify;
+}
+
+.page h1, .page h2, .page h3 {
+  text-align: left;
+}
+
+.page-content {
+  padding-top: 2rem;
+}
+
+.vision {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.vision > .important {
+  padding-top: 0em; 
+  font-size: 2em;
+}
+
+.figure-caption {
+  color: #666;
+}
+
+.destacado {
+  padding: 1rem;
+  text-align: center;
+}
+
+.muy-destacado {
+  padding: 1.5rem;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.aclaracion {
+  padding: 0.5rem;
+  font-size: 0.9em;
+}
+
+hr.separator {
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+}
+
+li.active {
+  font-weight: bolder;
+}
+
+.navbar-nav .nav-link {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  padding-top: .8rem;
+}
+
+
+#contacto {
+  padding-top: 2rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 16rem;
+}
+
+#contacto li a {
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+#contacto a {
+  color: #9bc2cf;
+}
+
+#contacto a:hover {
+  color: #add8e6;
+  text-decoration: none;
+}
+
+.principal {
+  padding-bottom: 6rem;
+}
+
+.section-header,
+.page-header {
+  border-bottom-style: solid;
+  border-bottom-color: #000;
+  border-bottom-width: 1px;
+}
+
+.section-header {
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.sitemap-card-block {
+  height: 18rem;
+  overflow: hidden
+}
+
+.sitemap-card-block .card-title {
+  font-size: 1.2em;
+}
+
+.lista-animales {
+  list-style: none;
+}
+
+.number {
+  width: 3em;
+  display: inline-block;
+  text-align: right;
+}
+
+.left-navigator li a.nav-link {
+  padding-bottom: 0;
+}
+
+.blockquote {
+  text-align: left;
+}
+
+.nav-articles > ul > li > a.nav-link {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  font-size: 0.8rem;
+}

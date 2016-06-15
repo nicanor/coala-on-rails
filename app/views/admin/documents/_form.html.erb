@@ -1,0 +1,150 @@
+<%= form_for(document) do |f| %>
+
+  <% if document.errors.any? %>
+    <article class="alert alert-danger">
+      <%= document.errors.count %>
+      error(es) no permiten guardar este documento:
+      <ul>
+        <% document.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </article>
+  <% end %>
+
+
+  <div class="row form-row">
+    <fieldset class="form-group col-md-5">
+      <%= f.label :title, 'Título' %>
+      <%= f.text_field :title,
+          class: 'form-control' %>
+    </fieldset>
+  
+    <fieldset class="form-group col-md-4">
+      <%= f.label :slug %>
+      <%= f.text_field :slug,
+          class: 'form-control' %>
+      <small class="text-muted">
+        Debe ser url-friendly
+      </small>
+    </fieldset>
+  
+    <fieldset class="form-group col-md-3">
+      <%= f.label :kind, 'Tipo' %>
+      <%= f.select :kind, kind_options, {},
+          class: 'form-control' %>
+    </fieldset>
+  </div>
+
+
+  <div class="row form-row">
+    <div class="col-md-5">
+      <fieldset class="form-group">
+        <%= f.label :publication_date,
+            'Fecha de publicación' %>
+        <%= f.date_field :publication_date,
+            class: 'form-control' %>
+      </fieldset>
+    </div>
+
+    <div class="col-md-4">
+      <label>Opciones</label>
+      <fieldset class="checkbox">
+        <%= f.label :public do %>
+          <%= f.check_box :public %>
+          ¿Es público?
+        <% end %>
+      </fieldset>
+  
+      <fieldset class="checkbox">
+        <%= f.label :protected do %>
+          <%= f.check_box :protected %>
+          ¿Está protegido? 
+        <% end %>
+      </fieldset>
+    </div>
+    
+    <div class="col-md-3">
+      <fieldset class="form-group">
+        <%= f.label :site_id, 'Sitio Web' %>
+        <%= f.select :site_id,
+          Site.pluck(:name, :id), {},
+          class: 'form-control' %>
+      </fieldset>
+    </div>
+  </div>
+
+
+  <% if document.photo %>
+    <%= image_tag(
+      @document.photo.thumb('330x440').url,
+      class: 'img-fluid img-thumbnail') %>
+
+    <fieldset class="checkbox">
+      Tilde para borrar la foto actual. <br />
+      <%= f.label :remove_photo do %>
+        <%= f.check_box :remove_photo %>
+        Borrar foto
+      <% end %>
+    </fieldset>
+
+  <% else %>
+
+    <fieldset class="form-group">
+      Elegir foto <br />
+      <%= f.label :photo, class: :file do %>
+        <%= f.file_field :photo %>
+        <span class="file-custom"></span>
+      <% end %>    
+    </fieldset>
+
+  <% end %>
+
+
+  <fieldset class="form-group">
+    <%= f.label :facebook_url,
+        'URL de Facebook' %>
+    <%= f.text_field :facebook_url,
+        class: 'form-control' %>
+    <small class="text-muted">
+      URL del post en facebook.
+      Ej.: http://facebok.com/123123
+    </small>
+  </fieldset>
+
+  <section class="actions">
+    <%= f.submit 'Guardar',
+    class: 'btn btn-primary' %>
+  </section> <br />
+
+
+  <fieldset class="form-group">
+    <%= f.label :description,
+        'Descripción' %>
+    <%= f.text_area :description,
+        class: 'form-control' %>
+    <small class="text-muted">
+      Breve descripción de la página.
+      No más de 140 caracteres.
+    </small>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :content,
+        'Contenido' %>
+    <%= f.text_area :content,
+        class: 'form-control coding-textarea' %>
+    <small class="text-muted">
+      Este texto se escribe en formato textile.
+      Para ver sintaxis, hacer
+      <%= link_to 'click aquí',
+          'http://redcloth.org/textile/',
+          target: '_blank' %>.
+    </small>
+  </fieldset>
+
+  <section class="actions">
+    <%= f.submit 'Guardar',
+    class: 'btn btn-primary' %>
+  </section>
+<% end %>

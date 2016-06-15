@@ -1,0 +1,52 @@
+<nav id="navbar"
+     role="navigation"
+     class="navbar navbar-custom
+            navbar-fixed-top navbar-dark
+            bg-inverse">
+
+<section class="adjusted container">
+
+  <a class="navbar-brand" href="/">
+    <%= image_tag "00-logo-navbar.png",
+    alt: 'Coala', height: 35, width: 125 %>
+  </a>
+
+  <ul class="nav navbar-nav">
+
+    <li class="nav-item btn-group">
+      <a class="dropdown-toggle nav-link"
+         type="button"
+         id="page-dropdown"
+         data-toggle="dropdown"
+         aria-haspopup="true"
+         aria-expanded="false">
+         Secciones
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="page-dropdown">
+        <% pages_info.each do |id, title| %>
+          <%= link_to title, page_path(id), class: 'dropdown-item' %>
+        <% end %>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to 'Artículos',
+          :articles, class: 'nav-link' %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to 'Recetas',
+          :recipes, class: 'nav-link' %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to 'Recursos',
+          :resources, class: 'nav-link' %>
+    </li>
+
+  </ul>
+
+</section>
+
+</nav>
