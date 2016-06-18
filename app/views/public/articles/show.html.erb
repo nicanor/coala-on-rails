@@ -2,7 +2,7 @@
 
 <section class="card meta">
   <div class="card-block">
-    Nicanor Perera
+    <%= @article.user.try(:name) %>
     <%= @article.publication_date %>
   </div>
 </section>

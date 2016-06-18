@@ -4,14 +4,18 @@
     html: {class: 'form-inline'} do |f| %>
   
   <fieldset class="form-group">
-    <%= f.label :title, 'Título' %>
     <%= f.text_field :title,
-        class: 'form-control' %>
+        class: 'form-control',
+        placeholder: 'Título' %>
   </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.select :kind, kind_options, {},
+          class: 'form-control' %>
+  </fieldset>
+
 
   <%= f.submit 'Filtrar',
     class: 'btn btn-sm btn-primary' %>
   
 <% end %>
-
-<br />

@@ -1,4 +1,4 @@
-<%= form_for(user) do |f| %>
+<%= form_for(user, url: (url.present? ? url : user)) do |f| %>
   <% if user.errors.any? %>
     <article class="alert alert-danger">
       <%= user.errors.count %>
@@ -12,34 +12,37 @@
   <% end %>
 
   <fieldset class="form-group">
-    <%= f.label :name %>
+    <%= f.label :name, 'Nombre' %>
     <%= f.text_field :name,
         class: 'form-control' %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :email %>
+    <%= f.label :email, 'Correo electrónico' %>
     <%= f.text_field :email,
         class: 'form-control' %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :password %>
+    <%= f.label :password, 'Contraseña' %>
     <%= f.text_field :password,
         class: 'form-control' %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation,
+       'Confirmación de contraseña'%>
     <%= f.text_field :password_confirmation,
         class: 'form-control' %>
   </fieldset>
 
+  <% if user != current_user %>
   <fieldset class="form-group">
-    <%= f.label :role %>
+    <%= f.label :role, 'Permisos' %>
     <%= f.select :role, role_options, {},
         class: 'form-control' %>
   </fieldset>
+  <% end %>
 
   <div class="actions">
     <%= f.submit 'Guardar',

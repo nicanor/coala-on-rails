@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       resources :attachments #, shallow: true
     end
     resources :sites
+    get 'profile', to: 'users#profile'
+    patch 'update_profile', to: 'users#update_profile'
   end
 
 

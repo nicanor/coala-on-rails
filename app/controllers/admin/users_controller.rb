@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::AdminController
+  before_action :only_authorize_admin, except: [:profile, :update_profile]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :only_authorize_admin
 
   # GET /users
   # GET /users.json
@@ -20,6 +20,9 @@ class Admin::UsersController < Admin::AdminController
 
   # GET /users/1/edit
   def edit
+    if @user == current_user
+      redirect_to profile_path
+    end
   end
 
   # POST /users
@@ -41,16 +44,30 @@ class Admin::UsersController < Admin::AdminController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, success: 'Usuario actualizado con éxito.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user == current_user
+      @user.update(profile_params)
+      redirect_to profile_path, success: 'Información actualizada con éxito'
+    elsif @user.update(user_params)
+      redirect_to @user, success: 'Usuario actualizado con éxito.'
+    else
+      render :edit
     end
   end
+
+
+  # GET /profile
+  def profile
+  end
+
+  # POST /update_profile
+  def update_profile
+    if current_user.update(profile_params)
+      redirect_to profile_path, success: 'Información actualizada con éxito'
+    else
+      render :edit
+    end
+  end
+
 
   # DELETE /users/1
   # DELETE /users/1.json
@@ -71,6 +88,11 @@ class Admin::UsersController < Admin::AdminController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :role, :name)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def profile_params
+    params.require(:user).permit(:name, :password, :password_confirmation)
   end
 
 end

@@ -4,6 +4,9 @@ class Admin::AdminController < ApplicationController
 
   include Concerns::SessionAware
 
+  def profile
+  end
+
   def authorize
     if not current_user
       flash[:danger] =

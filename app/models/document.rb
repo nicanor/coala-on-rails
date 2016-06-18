@@ -1,5 +1,6 @@
 class Document < ApplicationRecord
   belongs_to :site
+  belongs_to :user
   has_many :attachments
 
   KINDS = ['page', 'article', 'recipe', 'resource']

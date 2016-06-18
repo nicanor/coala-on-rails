@@ -13,7 +13,7 @@
   código en markdown de forma cómoda
 */
 .coding-textarea{
-  font-size: 0.6em;
+  font-size: 0.7em;
   font-family: monospace;
   height: 20rem !important;
   max-height: 20rem !important;
@@ -32,10 +32,6 @@
   padding-bottom: 1rem;
 }
 
-h1 small.link {
-  font-size: 0.4em;
-}
-
 .show-document {
   font-family: monospace;
 }
@@ -46,4 +42,19 @@ h1 small.link {
   white-space: -pre-wrap;      /* Opera 4-6 */
   white-space: -o-pre-wrap;    /* Opera 7 */
   word-wrap: break-word;    "
+}
+
+
+.side {
+  border-right: 1px solid #ddd;
+}
+
+h1 {
+  font-size: 1.5em;
+  padding-bottom: 0.5em;
+}
+
+select {
+  padding-top: 0.52em !important;
+  padding-bottom: 0.55em !important;
 }

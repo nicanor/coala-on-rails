@@ -11,28 +11,45 @@
   <%#= render 'svgs' %>
 
   <nav class="navbar navbar-full navbar-dark bg-primary" role="navigation">
-    <section class="container">
+    <section class="cdontainer-fluid">
       <a class="navbar-brand" href="/sites">
         Administración | Coala
       </a>
       <ul class="nav navbar-nav pull-md-right">
-        <li class="nav-item active">
-          <a class="nav-link" href="/logout">
-            Cerrar Sesión
+
+        <li class="nav-item btn-group">
+          <a class="dropdown-toggle nav-link"
+             type="button"
+             id="user-dropdown"
+             data-toggle="dropdown"
+             aria-haspopup="true"
+             aria-expanded="false">
+            <%= current_user.email %>
           </a>
+
+          <div class="dropdown-menu" aria-labelledby="user-dropdown">
+            <%= link_to 'Configuración', profile_path, class: 'dropdown-item' %>
+
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item" href="/logout">
+              Cerrar Sesión
+            </a>
+          </div>
         </li>
       </ul>
+
     </section>
   </nav>
 
-  <article class="page container">
+  <article class="page container-fluid">
     <div class="row">
 
-      <nav class="col-md-3">
+      <nav class="col-md-2 side">
         <%= render 'side' %>
       </nav>
 
-      <main class="col-md-9">
+      <main class="col-md-10">
         <%= flash_messages if flash %>
         <%= yield %>
       </main>
