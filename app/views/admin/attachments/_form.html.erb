@@ -1,4 +1,4 @@
-<%= form_for(attachment) do |f| %>
+<%= form_for [@document, attachment] do |f| %>
 
   <% if attachment.errors.any? %>
     <article class="alert alert-danger">

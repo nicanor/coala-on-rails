@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   scope module: :admin do
-    resources :attachments
     resources :users
     resources :documents do
       get 'image', on: :member
+      resources :attachments #, shallow: true
     end
     resources :sites
   end

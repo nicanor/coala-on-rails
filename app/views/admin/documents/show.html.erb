@@ -70,6 +70,19 @@
 </p>
 </section>
 </section>
+
+<section id="attachments">
+
+<strong>Archivos:</strong>
+  <table class="table">
+    <%= render @document.attachments %>
+  </table>
+  <%= link_to 'Nuevo archivo',
+    [:new, @document, :attachment],
+    class: 'btn btn-success' %>
+
+</section>
+
 <strong>Contenido:</strong>
 
 <pre class="show-content">

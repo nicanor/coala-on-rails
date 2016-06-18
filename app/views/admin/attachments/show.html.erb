@@ -1,10 +1,10 @@
-
 <h1>
   <%= @attachment.title %>
   <small class="link">
     <%= link_to 'editar',
-      edit_attachment_path(@attachment) %>
-    <br />
+      [:edit, @document, @attachment] %>
+    -
+    <%= link_to 'documento', @document %>
   </small>
 </h1>
 

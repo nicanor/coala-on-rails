@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
   def site
     @_site ||= Site.find_by(code: 'es')
   end
-
   helper_method :admin_path, :site
 
 end

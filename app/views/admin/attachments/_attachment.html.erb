@@ -1,13 +1,17 @@
 <tr>
+  <td><%= image_tag(
+    attachment.file.thumb('64x36#').url,
+    class: ' img-thumbnail'
+  ) if attachment.file %></td>
   <td><%= attachment.title %></td>
   <td><%= attachment.slug %></td>
 
-  <td><%= link_to 'Ver', attachment %></td>
+  <td><%= link_to 'Ver', [@document, attachment] %></td>
 
   <td><%= link_to 'Editar',
-          [:edit, attachment] %></td>
+          [:edit, @document, attachment] %></td>
 
   <td><%= link_to 'Eliminar',
-          attachment, method: :delete,
+          [@document, attachment], method: :delete,
           data: { confirm: '¿Está seguro?' } %></td>
 </tr>
