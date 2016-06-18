@@ -1,7 +1,10 @@
 <h1><%= @article.title %></h1>
 
 <section class="card meta">
-  Nicanor Perera
+  <div class="card-block">
+    Nicanor Perera
+    <%= @article.publication_date %>
+  </div>
 </section>
 
 <%= image_tag @article.photo.thumb('512x512#').url,

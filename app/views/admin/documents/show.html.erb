@@ -3,7 +3,12 @@
   <small class="link">
     <%= link_to 'editar',
       edit_document_path(@document) %>
-    <br />
+
+    <% if @document.public? %>
+      -
+      <%= link_to 'ver en sitio web',
+          public_path(@document) %>
+    <% end %>
   </small>
 </h1>
 

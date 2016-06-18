@@ -1,4 +1,4 @@
-module TextileHelper
+module MarkdownHelper
 
   def compile_textile(raw_text)
     #textilize(
@@ -12,7 +12,7 @@ module TextileHelper
   # [img:my_image:'100x100'] =>
   #   "http://domain.com/images/..."
   def compile_images(content)
-    content.gsub(/\[img:(.*):'(.*)'\]/) do
+    content.gsub(/\{\{(.*):(.*)\}\}/) do
       get_image(slug: $1, size: $2)
     end
   end

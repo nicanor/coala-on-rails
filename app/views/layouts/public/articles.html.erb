@@ -13,10 +13,10 @@
 
   <article class="page container adjusted">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-sm-12 col-md-8">
         <%= yield %>
       </div>
-      <div class="col-md-4 nav-articles ">
+      <div class="col-sm-12 col-md-4 nav-articles">
         <h5>Últimos artículos</h5>
         <ul class="nav nav-pills nav-stacked">
           <% articles_info.each do |id, title| %>
@@ -25,6 +25,11 @@
             </li>
           <% end %>
         </ul>
+
+        <br />
+
+        <h5>Acerca de </h5>
+        <%= site.description %>
       </div>
     </div>
     

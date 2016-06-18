@@ -37,7 +37,7 @@ class Admin::DocumentsController < Admin::AdminController
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, success: 'Document was successfully created.' }
+        format.html { redirect_to @document, success: 'Documento creado con éxito.' }
         format.json { render :show, status: :created, location: @document }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class Admin::DocumentsController < Admin::AdminController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to @document, success: 'Document was successfully updated.' }
+        format.html { redirect_to @document, success: 'Documento actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class Admin::DocumentsController < Admin::AdminController
   def destroy
     @document.destroy
     respond_to do |format|
-      format.html { redirect_to documents_url(document_filter: {kind: @document.kind}), success: 'Document was successfully destroyed.' }
+      format.html { redirect_to documents_url(document_filter: {kind: @document.kind}), success: 'Documento eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

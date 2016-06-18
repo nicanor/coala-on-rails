@@ -1,20 +1,24 @@
+<div class="col-md-6 col-sm-12">
 <article class="card recipe">
 
-  <h2><%= link_to recipe.title,
-    recipe_path(recipe) %></h2>
-
   <% if recipe.photo %>
-    <%= link_to recipe_path(recipe) do %>
-      <%= image_tag recipe.photo.thumb('294x294#').url,
-          class: 'img-responsive' %>
-    <% end %>
+    <%= image_tag recipe.photo.thumb('400x200#').url,
+        class: 'card-img-top img-fluid' %>
   <% end %>
 
-  <p><%= recipe.description %></p>
+  <section class="card-block">
+
+  <h2 class="card-title"><%= link_to recipe.title,
+    recipe_path(recipe) %></h2>
+
+  <p class="card-text"><%= recipe.description %></p>
 
   <%= link_to 'Compartir por facebook',
       recipe.facebook_url,
       class: 'btn btn-block btn-primary',
       target: '_blank' %>
 
+      </section>
+
 </article>
+</div>

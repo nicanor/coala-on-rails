@@ -1,5 +1,6 @@
 class Admin::SitesController < Admin::AdminController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_action :only_authorize_admin
 
   # GET /sites
   # GET /sites.json
@@ -28,7 +29,7 @@ class Admin::SitesController < Admin::AdminController
 
     respond_to do |format|
       if @site.save
-        format.html { redirect_to @site, success: 'Site was successfully created.' }
+        format.html { redirect_to @site, success: 'El sitio fue creado con éxito.' }
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class Admin::SitesController < Admin::AdminController
   def update
     respond_to do |format|
       if @site.update(site_params)
-        format.html { redirect_to @site, success: 'Site was successfully updated.' }
+        format.html { redirect_to @site, success: 'El sitio fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class Admin::SitesController < Admin::AdminController
   def destroy
     @site.destroy
     respond_to do |format|
-      format.html { redirect_to sites_url, success: 'Site was successfully destroyed.' }
+      format.html { redirect_to sites_url, success: 'El sitio fue eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

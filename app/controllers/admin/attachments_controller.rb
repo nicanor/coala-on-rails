@@ -28,7 +28,7 @@ class Admin::AttachmentsController < Admin::AdminController
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
+        format.html { redirect_to @attachment, notice: 'El archivo fue creado con éxito.' }
         format.json { render :show, status: :created, location: @attachment }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::AttachmentsController < Admin::AdminController
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }
+        format.html { redirect_to @attachment, notice: 'El archivo fue actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @attachment }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::AttachmentsController < Admin::AdminController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: 'Attachment was successfully destroyed.' }
+      format.html { redirect_to attachments_url, notice: 'El archivo fue eliminado con éxito.' }
       format.json { head :no_content }
     end
   end

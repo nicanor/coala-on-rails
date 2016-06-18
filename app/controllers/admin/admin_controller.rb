@@ -12,4 +12,11 @@ class Admin::AdminController < ApplicationController
       redirect_to '/login'
     end
   end
+
+  def only_authorize_admin
+    if not current_user.is?(:admin)
+      flash[:danger] = 'Acceso no autorizado.'
+      redirect_to admin_path
+    end
+  end
 end

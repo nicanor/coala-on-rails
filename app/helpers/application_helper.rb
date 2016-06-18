@@ -54,4 +54,21 @@ module ApplicationHelper
       .group_by {|x| x.first}
   end
 
+  def public_path(document)
+    case document.kind.to_sym
+      when :page     then page_path(document)
+      when :article  then article_path(document)
+      when :recipe   then recipe_path(document)
+      when :resource then resource_path(document)
+      else root_path
+    end
+  end
+
+  # Usage: octicon(:home, width: 16, height: 16)
+  def octicon(name, options)
+    content_tag :svg, options do
+      content_tag :use, '', 'xlink:href' => "#icon-#{name}"
+    end
+  end
+
 end
