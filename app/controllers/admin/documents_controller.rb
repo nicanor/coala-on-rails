@@ -99,7 +99,8 @@ class Admin::DocumentsController < Admin::AdminController
       :facebook_url,
       :photo,
       :remove_photo,
-      :site_id
+      :site_id,
+      :user_id
     )
 
     if hack[:photo].blank?

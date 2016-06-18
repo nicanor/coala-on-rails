@@ -5,9 +5,14 @@ class Document < ApplicationRecord
 
   KINDS = ['page', 'article', 'recipe', 'resource']
 
-  validates :title, presence: true
+  validates :title, :slug, presence: true
   validates  :slug, uniqueness: true
   validates  :kind, inclusion: {in: KINDS}
+
+  validates :slug, format: {
+    with: /\A[a-z1-9\-]+\z/,
+    message: "debe tener sólo letras minúsculas, números y guiónes del medio."
+  }
 
   validates_property :format,
     of: :photo,

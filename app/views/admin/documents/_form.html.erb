@@ -46,6 +46,13 @@
       </fieldset>
 
       <fieldset class="form-group">
+        <%= f.label :user_id, 'Autor' %>
+        <%= f.select :user_id,
+            User.pluck(:name, :id), {selected: document.user_id || current_user.id},
+            class: 'form-control' %>
+      </fieldset>
+
+      <fieldset class="form-group">
         <%= f.label :facebook_url,
             'URL de Facebook' %>
         <%= f.text_field :facebook_url,
@@ -127,10 +134,11 @@
   </div>
 </div>
 
+<br />
 
 <fieldset class="form-group">
-  <%= f.label :content,
-      'Contenido' %>
+  <h1><%= f.label :content,
+      'Contenido' %></h1>
   <%= f.text_area :content,
       class: 'form-control coding-textarea' %>
   <small class="text-muted">
