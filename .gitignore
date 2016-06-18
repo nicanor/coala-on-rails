@@ -14,7 +14,6 @@
 !/tmp/.keep
 
 public/dragonfly/*
-db/*
 log/*
 config/database.yml
 config/secrets.yml
