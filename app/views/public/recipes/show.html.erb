@@ -3,3 +3,9 @@
 <% if @recipe.content %>
   <%= compile_textile @recipe.content %>
 <% end %>
+
+
+<%= link_to 'Compartir por facebook',
+    @recipe.facebook_url,
+    class: 'btn btn-block btn-primary',
+    target: '_blank' %>

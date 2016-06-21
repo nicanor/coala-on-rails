@@ -1,1 +1,57 @@
-<h1>Hola Mundo</h1>
+<div id="carousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <% @important_pages.each_with_index do |page, index| %>
+      <%= content_tag :li, '',
+        data: {'target' => '#carousel', 'slide_to' => index},
+        class: ('active' if index.zero?) %>
+    <% end %>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <% @important_pages.each_with_index do |page, index| %>
+      <%= content_tag :div, class: ['carousel-item', ('active' if index.zero?)] do %>
+        <%= image_tag page.photo.thumb('1024x512#').url %>
+        <div class="carousel-caption">
+          <h3 style="text-align: center;"><%= link_to page.title, page_path(page) %></h3>
+          <p><%= page.description %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+    <span class="icon-prev" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+    <span class="icon-next" aria-hidden="true"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>
+
+<br />
+
+<section class="important-articles card card-block">
+<h5>Últimos artículos</h5>
+<div class="row">
+  <% @important_articles.each do |article| %>
+    <div class="col-md-3">
+
+<article class="card recipe">
+
+  <% if article.photo %>
+    <%= image_tag article.photo.thumb('300x200#').url,
+        class: 'card-img-top img-fluid' %>
+  <% end %>
+
+  <section class="card-block">
+      <p><%= article.title %></p>
+      <small><%= link_to 'Ver más',
+          article_path(article) %></small>
+
+  </section>
+
+</article>
+
+    </div>
+  <% end %>
+</div>
+</section>

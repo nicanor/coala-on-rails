@@ -4,6 +4,9 @@ class Public::PublicController < ApplicationController
     with: :not_found_handler
 
   def home
+    @important_pages    = public_articles.first(3)
+    @important_articles = public_articles.last(4)
+    @important_recipes  = public_recipes.last(4)
   end
 
   def not_found
