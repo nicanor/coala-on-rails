@@ -1,5 +1,7 @@
 <h1>Ficha de usuario</h1>
 
+<section class="card">
+<section class="card-block">
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -14,6 +16,8 @@
   <strong>Nombre:</strong>
   <%= @user.name %>
 </p>
+</section>
+</section>
 
 <% if @user != current_user %>
   <%= link_to 'Editar', edit_user_path(@user)%> |

@@ -19,6 +19,7 @@ class Admin::DocumentsController < Admin::AdminController
   # GET /documents/1
   # GET /documents/1.json
   def show
+    @tags_ids = @document.tags.ids
   end
 
   # GET /documents/new

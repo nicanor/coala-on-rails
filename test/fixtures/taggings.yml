@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: es
-  name: Español
-  description: MyText
+  document: one
+  tag: one
 
 two:
-  code: en
-  name: Ingles
-  description: MyText
+  document: two
+  tag: two

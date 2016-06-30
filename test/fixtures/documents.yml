@@ -3,7 +3,7 @@
 one:
   title: MyString
   slug: MyString
-  kind: MyString
+  kind: page
   description: MyText
   content: MyText
   public: false
@@ -17,7 +17,7 @@ one:
 two:
   title: MyString
   slug: MyString
-  kind: MyString
+  kind: article
   description: MyText
   content: MyText
   public: false

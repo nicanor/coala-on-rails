@@ -71,9 +71,14 @@
 </section>
 </section>
 
-<section id="attachments">
 
-<strong>Archivos:</strong>
+
+<h2 class="subtitle">Archivos</h2>
+
+<section id="attachments">
+<section class="card">
+  <section class="card-block">
+
   <table class="table">
     <%= render @document.attachments %>
   </table>
@@ -82,8 +87,20 @@
     class: 'btn btn-success' %>
 
 </section>
+</section>
+</section>
 
-<strong>Contenido:</strong>
+
+
+<h2 class="subtitle">Etiquetas</h2>
+
+<section id="tags">
+  <%= render 'tags', document: @document, tags_ids: @tags_ids %>
+</section>
+
+
+
+<h2 class="subtitle">Contenido</h2>
 
 <pre class="show-content">
 <code class="language-markdown">

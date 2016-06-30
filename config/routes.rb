@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
   scope module: :admin do
+    resources :tags
     resources :users
     resources :documents do
       get 'image', on: :member
+      resources :tags, except: :all do
+        member do 
+          post :tag
+          post :untag
+        end
+      end
       resources :attachments #, shallow: true
     end
     resources :sites

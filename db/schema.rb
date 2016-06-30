@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618033559) do
+ActiveRecord::Schema.define(version: 20160630021418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,23 @@ ActiveRecord::Schema.define(version: 20160618033559) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "document_id"
+    t.integer  "tag_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["document_id"], name: "index_taggings_on_document_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
@@ -68,4 +85,6 @@ ActiveRecord::Schema.define(version: 20160618033559) do
   add_foreign_key "attachments", "documents"
   add_foreign_key "documents", "sites"
   add_foreign_key "documents", "users"
+  add_foreign_key "taggings", "documents"
+  add_foreign_key "taggings", "tags"
 end

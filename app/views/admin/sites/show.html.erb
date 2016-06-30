@@ -1,3 +1,14 @@
+<h1>
+  Sitio Web
+  <small class="link">
+    <%= link_to 'editar',
+      edit_site_path(@site) %>
+  </small>
+</h1>
+
+<section class="card">
+<section class="card-block">
+
 <p>
   <strong>Código:</strong>
   <%= @site.code %>
@@ -13,5 +24,7 @@
   <%= @site.description %>
 </p>
 
-<%= link_to 'Editar', edit_site_path(@site) %> |
+</section>
+</section>
+
 <%= link_to 'Volver', sites_path %>

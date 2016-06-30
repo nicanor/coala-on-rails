@@ -1,5 +1,9 @@
 <h1>Nuevo Usuario</h1>
 
-<%= render 'form', user: @user, url: false %>
+<section class="card">
+  <section class="card-block">
+    <%= render 'form', user: @user, url: false %>
+  </section>
+</section>
 
 <%= link_to 'Volver', users_path %>

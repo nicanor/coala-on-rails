@@ -1,11 +1,24 @@
 /*
  *= require bootstrap4
- *= require prism2
+ *= require prism
  *= require_self
  */
 
+body {
+  background-color: #eee;
+}
+
+.side {
+ background-color: #fff;
+}
+
 .navbar {
   margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size:1.5em;
+  padding-top: 1rem;
 }
 
 /* 

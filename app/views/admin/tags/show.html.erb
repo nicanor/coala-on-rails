@@ -1,0 +1,28 @@
+<h1>
+  <%= @tag.name %>
+  <small class="link">
+    <%= link_to 'editar',
+      edit_tag_path(@tag) %>
+  </small>
+</h1>
+
+<section class="card">
+<section class="card-block">
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tag.name %>
+</p>
+
+<p>
+  <strong>Permalink:</strong>
+  <%= @tag.slug %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @tag.description %>
+</p>
+
+</section>
+</section>

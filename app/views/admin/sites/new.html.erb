@@ -1,5 +1,9 @@
 <h1>Nuevo sitio</h1>
 
-<%= render 'form', site: @site %>
+<section class="card">
+  <section class="card-block">
+    <%= render 'form', site: @site %>
+  </section>
+</section>
 
 <%= link_to 'Volver', sites_path %>

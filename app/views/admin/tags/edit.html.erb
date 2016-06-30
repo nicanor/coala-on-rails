@@ -1,0 +1,10 @@
+<h1>Editando etiqueta</h1>
+
+<section class="card">
+  <section class="card-block">
+    <%= render 'form', tag: @tag %>
+  </section>
+</section>
+
+<%= link_to 'Ver', @tag %> |
+<%= link_to 'Volver', tags_path %>

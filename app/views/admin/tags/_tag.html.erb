@@ -1,0 +1,7 @@
+<tr>
+  <td><%= tag.name %></td>
+  <td><%= link_to 'Ver', tag %></td>
+  <td><%= link_to 'Editar', edit_tag_path(tag) %></td>
+  <td><%= link_to 'Eliminar', tag, method: :delete,
+            data: { confirm: '¿Está seguro?' } %></td>
+</tr>

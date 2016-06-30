@@ -1,0 +1,15 @@
+<section class="card">
+  <section class="card-block">
+
+    <% Tag.all.each do |tag| %>
+      <% if tags_ids.include?(tag.id) %>
+        <%= link_to tag.name, [:untag, document, tag],
+            method: :post, remote: true, class: 'btn btn-sm btn-success' %>
+      <% else %>
+        <%= link_to tag.name, [:tag, document, tag],
+            method: :post, remote: true, class: 'btn btn-sm btn-default' %>
+      <% end %>
+    <% end %>
+
+  </section>
+</section>

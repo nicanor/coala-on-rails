@@ -1,0 +1,40 @@
+<%= form_for(tag) do |f| %>
+  <% if tag.errors.any? %>
+    <article class="alert alert-danger">
+      <%= tag.errors.count %>
+      error(es) no permiten guardar esta etiqueta:
+      <ul>
+        <% tag.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </article>
+  <% end %>
+
+  <fieldset class="form-group">
+    <%= f.label :name, 'Nombre' %>
+    <%= f.text_field :name,
+        class: 'form-control' %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :slug, 'Permalink' %>
+    <%= f.text_field :slug,
+        class: 'form-control' %>
+    <small class="text-muted">
+      Debe ser url-friendly
+    </small>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :description, 'Descripción' %>
+    <%= f.text_area :description,
+        class: 'form-control' %>
+  </fieldset>  
+
+  <div class="actions">
+    <%= f.submit 'Guardar',
+        class: 'btn btn-primary' %>
+  </div>
+
+<% end %>

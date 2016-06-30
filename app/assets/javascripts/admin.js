@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap4.js
 // require turbolinks
-//= require prism2
+//= require prism

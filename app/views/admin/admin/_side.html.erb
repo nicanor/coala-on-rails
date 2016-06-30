@@ -9,6 +9,10 @@
     </li>
   <% end %>
 
+  <li class="nav-item">
+    <%= link_to 'Etiquetas',
+        :tags, class: 'nav-link' %>
+  </li>
 
   <% if current_user.is? :admin %>
     <div class="dropdown-divider"></div>

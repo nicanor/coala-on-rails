@@ -2,6 +2,8 @@ class Document < ApplicationRecord
   belongs_to :site
   belongs_to :user
   has_many :attachments
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   KINDS = ['page', 'article', 'recipe', 'resource']
 
